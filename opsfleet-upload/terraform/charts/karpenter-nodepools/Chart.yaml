@@ -1,5 +1,0 @@
-apiVersion: v2
-name: karpenter-nodepools
-description: Opsfleet Karpenter EC2NodeClass and NodePools
-type: application
-version: 0.1.0
