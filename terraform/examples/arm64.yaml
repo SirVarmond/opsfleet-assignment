@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: arm64-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arm64-test
+  template:
+    metadata:
+      labels:
+        app: arm64-test
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: arm64
+        karpenter.sh/nodepool: arm64
+      containers:
+        - name: test
+          image: public.ecr.aws/docker/library/nginx:stable-alpine
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
